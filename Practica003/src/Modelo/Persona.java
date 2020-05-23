@@ -1,11 +1,13 @@
 package Modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -19,8 +21,8 @@ public class Persona implements Serializable{
 	private String usu_apellido;
 	private String usu_correo;
 	private String usu_contrasenia;
-	//@OneToOne(cascade = CascadeType.ALL, mappedBy = "persona")
-	private List<Telefono> Telefono;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
+	private List<Telefono> telefonos = new ArrayList<Telefono>();
 	
 	
 	public Persona(int usu_id, String usu_cedula, String usu_nombre, String usu_apellido, String usu_correo,
@@ -85,20 +87,19 @@ public class Persona implements Serializable{
 		this.usu_contrasenia = usu_contrasenia;
 	}
 
-	public List<Telefono> getTelefono() {
-		return Telefono;
+	public List<Telefono> getTelefonos() {
+		return telefonos;
 	}
 
-	public void setTelefono(List<Telefono> telefono) {
-		Telefono = telefono;
+	public void setTelefonos(List<Telefono> telefonos) {
+		this.telefonos = telefonos;
 	}
-
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Telefono == null) ? 0 : Telefono.hashCode());
+		result = prime * result + ((telefonos == null) ? 0 : telefonos.hashCode());
 		result = prime * result + ((usu_apellido == null) ? 0 : usu_apellido.hashCode());
 		result = prime * result + ((usu_cedula == null) ? 0 : usu_cedula.hashCode());
 		result = prime * result + ((usu_contrasenia == null) ? 0 : usu_contrasenia.hashCode());
@@ -117,10 +118,10 @@ public class Persona implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Persona other = (Persona) obj;
-		if (Telefono == null) {
-			if (other.Telefono != null)
+		if (telefonos == null) {
+			if (other.telefonos != null)
 				return false;
-		} else if (!Telefono.equals(other.Telefono))
+		} else if (!telefonos.equals(other.telefonos))
 			return false;
 		if (usu_apellido == null) {
 			if (other.usu_apellido != null)
@@ -156,7 +157,7 @@ public class Persona implements Serializable{
 	public String toString() {
 		return "Persona [usu_id=" + usu_id + ", usu_cedula=" + usu_cedula + ", usu_nombre=" + usu_nombre
 				+ ", usu_apellido=" + usu_apellido + ", usu_correo=" + usu_correo + ", usu_contrasenia="
-				+ usu_contrasenia + ", Telefono=" + Telefono + "]";
+				+ usu_contrasenia + ", telefonos=" + telefonos + "]";
 	}
 
 	
