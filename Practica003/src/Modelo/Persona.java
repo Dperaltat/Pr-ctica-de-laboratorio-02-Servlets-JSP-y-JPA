@@ -2,7 +2,9 @@ package Modelo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -22,7 +24,7 @@ public class Persona implements Serializable{
 	private String usu_correo;
 	private String usu_contrasenia;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
-	private List<Telefono> telefonos = new ArrayList<Telefono>();
+	private Set<Telefono> telefonos = new HashSet<Telefono>();
 	
 	
 	public Persona(int usu_id, String usu_cedula, String usu_nombre, String usu_apellido, String usu_correo,
@@ -87,11 +89,11 @@ public class Persona implements Serializable{
 		this.usu_contrasenia = usu_contrasenia;
 	}
 
-	public List<Telefono> getTelefonos() {
+	public Set<Telefono> getTelefonos() {
 		return telefonos;
 	}
 
-	public void setTelefonos(List<Telefono> telefonos) {
+	public void setTelefonos(Set<Telefono> telefonos) {
 		this.telefonos = telefonos;
 	}
 
@@ -160,5 +162,6 @@ public class Persona implements Serializable{
 				+ usu_contrasenia + ", telefonos=" + telefonos + "]";
 	}
 
+	
 	
 }

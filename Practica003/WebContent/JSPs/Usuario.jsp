@@ -24,11 +24,11 @@
 	
 	<div>
 		<div>
-  		<h1>Bienvenido ${p2.nombre}</h1>
+  		<h1>Bienvenido ${p2.usu_nombre}</h1>
 
 	<div>
 		<div>
-  			<h1> ${p2.nombre} ${p2.apellido}</h1>
+  			<h1> ${p2.usu_nombre} ${p2.usu_apellido}</h1>
   			<ul>
   				<li><a href="/Practica001/ControladorSesion?id=2&idU=${p2.usu_id}"></a>
   			</ul>

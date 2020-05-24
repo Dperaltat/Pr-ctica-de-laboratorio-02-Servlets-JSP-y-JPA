@@ -17,7 +17,7 @@ public class Telefono implements Serializable{
 	
 	@Id
 	@GeneratedValue
-	private String tel_id;
+	private int tel_id;
 	private String tel_numero;
 	private String tel_tipo;
 	private String tel_operadora;
@@ -29,18 +29,18 @@ public class Telefono implements Serializable{
 		
 	}
 	
-	public Telefono(String tel_id, String tel_numero, String tel_tipo, String tel_operadora, Persona persona) {
+	public Telefono(String tel_numero, String tel_tipo, String tel_operadora, Persona persona) {
 		this.tel_numero = tel_numero;
 		this.tel_tipo = tel_tipo;
 		this.tel_operadora = tel_operadora;
 		this.persona = persona;
 	}
 
-	public String getTel_id() {
+	public int getTel_id() {
 		return tel_id;
 	}
 
-	public void setTel_id(String tel_id) {
+	public void setTel_id(int tel_id) {
 		this.tel_id = tel_id;
 	}
 
@@ -76,13 +76,12 @@ public class Telefono implements Serializable{
 		this.persona = persona;
 	}
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((persona == null) ? 0 : persona.hashCode());
-		result = prime * result + ((tel_id == null) ? 0 : tel_id.hashCode());
+		result = prime * result + tel_id;
 		result = prime * result + ((tel_numero == null) ? 0 : tel_numero.hashCode());
 		result = prime * result + ((tel_operadora == null) ? 0 : tel_operadora.hashCode());
 		result = prime * result + ((tel_tipo == null) ? 0 : tel_tipo.hashCode());
@@ -103,10 +102,7 @@ public class Telefono implements Serializable{
 				return false;
 		} else if (!persona.equals(other.persona))
 			return false;
-		if (tel_id == null) {
-			if (other.tel_id != null)
-				return false;
-		} else if (!tel_id.equals(other.tel_id))
+		if (tel_id != other.tel_id)
 			return false;
 		if (tel_numero == null) {
 			if (other.tel_numero != null)
@@ -131,5 +127,6 @@ public class Telefono implements Serializable{
 		return "Telefono [tel_id=" + tel_id + ", tel_numero=" + tel_numero + ", tel_tipo=" + tel_tipo
 				+ ", tel_operadora=" + tel_operadora + ", persona=" + persona + "]";
 	}
+
 
 }
