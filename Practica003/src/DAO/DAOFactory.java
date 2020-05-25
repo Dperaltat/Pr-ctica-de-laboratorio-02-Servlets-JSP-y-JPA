@@ -1,17 +1,15 @@
 package DAO;
 
 public abstract class DAOFactory {
-	
-    protected static DAOFactory factory = new JPADAOFactory();
 
-    public static DAOFactory getFactory() {
-	return factory;
-    }
+	protected static DAOFactory factory = new JPADAOFactory();
 
-    public abstract PersonaDAO getPersonaDAO();
+	public static DAOFactory getFactory() {
+		return factory;
+	}
 
-    public abstract TelefonoDAO getTelefonoDAO();
-    
-    
+	public abstract UsuarioDAO getUsuarioDAO();
+
+	public abstract TelefonoDAO getTelefonoDAO();
 
 }

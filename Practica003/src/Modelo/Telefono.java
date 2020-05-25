@@ -11,80 +11,89 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Telefono implements Serializable{
-	
+
+public class Telefono implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue
-	private int tel_id;
-	private String tel_numero;
-	private String tel_tipo;
-	private String tel_operadora;
+	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String numero;
+	private String tipo;
+	private String operadora;
 	@ManyToOne
 	@JoinColumn
-	private Persona persona;
-	
+	private Usuario usuario;
+
 	public Telefono() {
-		
-	}
-	
-	public Telefono(String tel_numero, String tel_tipo, String tel_operadora, Persona persona) {
-		this.tel_numero = tel_numero;
-		this.tel_tipo = tel_tipo;
-		this.tel_operadora = tel_operadora;
-		this.persona = persona;
+
 	}
 
-	public int getTel_id() {
-		return tel_id;
+	public Telefono(String numero, String tipo, String operadora) {
+		super();
+		this.numero = numero;
+		this.tipo = tipo;
+		this.operadora = operadora;
 	}
 
-	public void setTel_id(int tel_id) {
-		this.tel_id = tel_id;
+	public Telefono(String numero, String tipo, String operadora, Usuario usuario) {
+		super();
+		this.numero = numero;
+		this.tipo = tipo;
+		this.operadora = operadora;
+		this.usuario = usuario;
 	}
 
-	public String getTel_numero() {
-		return tel_numero;
+	public int getId() {
+		return id;
 	}
 
-	public void setTel_numero(String tel_numero) {
-		this.tel_numero = tel_numero;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getTel_tipo() {
-		return tel_tipo;
+	public String getNumero() {
+		return numero;
 	}
 
-	public void setTel_tipo(String tel_tipo) {
-		this.tel_tipo = tel_tipo;
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 
-	public String getTel_operadora() {
-		return tel_operadora;
+	public String getTipo() {
+		return tipo;
 	}
 
-	public void setTel_operadora(String tel_operadora) {
-		this.tel_operadora = tel_operadora;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
-	public Persona getPersona() {
-		return persona;
+	public String getOperadora() {
+		return operadora;
 	}
 
-	public void setPersona(Persona persona) {
-		this.persona = persona;
+	public void setOperadora(String operadora) {
+		this.operadora = operadora;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((persona == null) ? 0 : persona.hashCode());
-		result = prime * result + tel_id;
-		result = prime * result + ((tel_numero == null) ? 0 : tel_numero.hashCode());
-		result = prime * result + ((tel_operadora == null) ? 0 : tel_operadora.hashCode());
-		result = prime * result + ((tel_tipo == null) ? 0 : tel_tipo.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
+		result = prime * result + ((operadora == null) ? 0 : operadora.hashCode());
+		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
 		return result;
 	}
 
@@ -97,36 +106,35 @@ public class Telefono implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Telefono other = (Telefono) obj;
-		if (persona == null) {
-			if (other.persona != null)
-				return false;
-		} else if (!persona.equals(other.persona))
+		if (id != other.id)
 			return false;
-		if (tel_id != other.tel_id)
-			return false;
-		if (tel_numero == null) {
-			if (other.tel_numero != null)
+		if (numero == null) {
+			if (other.numero != null)
 				return false;
-		} else if (!tel_numero.equals(other.tel_numero))
+		} else if (!numero.equals(other.numero))
 			return false;
-		if (tel_operadora == null) {
-			if (other.tel_operadora != null)
+		if (operadora == null) {
+			if (other.operadora != null)
 				return false;
-		} else if (!tel_operadora.equals(other.tel_operadora))
+		} else if (!operadora.equals(other.operadora))
 			return false;
-		if (tel_tipo == null) {
-			if (other.tel_tipo != null)
+		if (tipo == null) {
+			if (other.tipo != null)
 				return false;
-		} else if (!tel_tipo.equals(other.tel_tipo))
+		} else if (!tipo.equals(other.tipo))
+			return false;
+		if (usuario == null) {
+			if (other.usuario != null)
+				return false;
+		} else if (!usuario.equals(other.usuario))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Telefono [tel_id=" + tel_id + ", tel_numero=" + tel_numero + ", tel_tipo=" + tel_tipo
-				+ ", tel_operadora=" + tel_operadora + ", persona=" + persona + "]";
+		return "Telefono [id=" + id + ", numero=" + numero + ", tipo=" + tipo + ", operadora=" + operadora
+				+ ", usuario=" + usuario + "]";
 	}
-
 
 }

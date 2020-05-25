@@ -1,18 +1,19 @@
 package DAO;
 
-import JPA.JPAPersonaDAO;
+import JPA.JPAUsuarioDAO;
 import JPA.JPATelefonoDAO;
 
 public class JPADAOFactory extends DAOFactory {
 
-    @Override
-    public PersonaDAO getPersonaDAO() {
-	return new JPAPersonaDAO();
-    }
+	@Override
+	public UsuarioDAO getUsuarioDAO() {
+		// TODO Auto-generated method stub
+		return new JPAUsuarioDAO();
+	}
 
-    @Override
-    public TelefonoDAO getTelefonoDAO() {
-	return new JPATelefonoDAO();
-    }
-
+	@Override
+	public TelefonoDAO getTelefonoDAO() {
+		// TODO Auto-generated method stub
+		return new JPATelefonoDAO();
+	}
 }
