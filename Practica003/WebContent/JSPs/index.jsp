@@ -3,26 +3,39 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Agenda Telefónica</title>
-<link rel="stylesheet"  href="/Practica001/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="/Practica001/css/estilo.css" type="text/css">
-</head>
-<body>
-	<div>
-	<ul>			
-		<li><a href="/Practica001/JSPs/CrearUsuario.jsp">Regístrate</a></li>
-		<li><a href="/Practica001/JSPs/login.jsp">Inicia Sesión</a></li>
-		<li><a href="/Practica001/JSPs/Invitado.jsp">Buscar en Modo Invitado</a></li>
-		<li><a href="/Practica001/JSPs/index.jsp">Home</a></li>			
-	</ul>
-	</div>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Agenda Telefónica</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="/Practica003/css/estilo.css" type="text/css">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	</head>
 	
-	<h1>AGENDA TELEFÓNICA</h1>
+<body id="fondo">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="nav nav-tabs">	
+				<li class="nav-item">
+					<a class="nav-link" href="/Practica003/JSPs/index.jsp">Home</a>
+				</li>	
+				<li class="nav-item">
+					<a class="nav-link" href="/Practica003/JSPs/Invitado.jsp">Buscar en Modo Invitado</a>
+				</li>	
+				<li class="nav-item">
+					<a class="nav-link" href="/Practica003/JSPs/CrearUsuario.jsp">Regístrate</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Practica003/JSPs/login.jsp">Inicia Sesión</a>
+				</li>						
+			</ul>
+		</div>
+	</nav>
 </body>
-<footer>
-  <p>Posted by: Daniel Peralta</p>
-  <p>Contact information: <a href="dperaltat1@est.ups.edu.ec">dperaltat1@est.ups.edu.ec</a></p>
-</footer>
+
+	<footer>
+ 		<p>Posted by: Daniel Peralta</p>
+  		<p>Contact information: <a href="dperaltat1@est.ups.edu.ec">dperaltat1@est.ups.edu.ec</a></p>
+	</footer>
 </html>

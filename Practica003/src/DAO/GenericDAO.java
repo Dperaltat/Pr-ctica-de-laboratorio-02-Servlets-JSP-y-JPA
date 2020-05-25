@@ -2,6 +2,8 @@ package DAO;
 
 import java.util.List;
 
+import Modelo.Persona;
+
 public interface GenericDAO<T, ID> {
 
 	    public void create(T entity);
@@ -19,4 +21,5 @@ public interface GenericDAO<T, ID> {
 	    public List<T> find(String[] attributes, String[] values); // like + and
 
 	    public List<T> find(String[] attributes, String[] values, String order, int index, int size);
+	    
 }

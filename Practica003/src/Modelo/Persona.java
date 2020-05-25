@@ -96,7 +96,15 @@ public class Persona implements Serializable{
 	public void setTelefonos(Set<Telefono> telefonos) {
 		this.telefonos = telefonos;
 	}
+	
+	public void addTelefonos(Telefono telefonos) {
+		this.telefonos.add(telefonos);
+	}
 
+	public void removeTelefonos(Telefono telefonos) {
+		this.telefonos.remove(telefonos);
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
