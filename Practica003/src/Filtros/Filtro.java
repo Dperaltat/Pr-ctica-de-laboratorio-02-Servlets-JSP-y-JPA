@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = { "/Filtro" }, servletNames = {"Buscar", "ControladorSesiones", "LoginServlet"})
+@WebFilter(urlPatterns = { "/Filtro" }, servletNames = {})
 public class Filtro implements Filter {
 
 	public Filtro() {
