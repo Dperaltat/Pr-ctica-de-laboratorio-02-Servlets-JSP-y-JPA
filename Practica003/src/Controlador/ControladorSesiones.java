@@ -48,7 +48,7 @@ public class ControladorSesiones extends HttpServlet {
 			usuario = usuarioDao.read(request.getParameter("idU"));
 			
 			
-			request.setAttribute("telefono", telfDAO.buscarCedula(usuario.getId()));
+			request.setAttribute("telefono", telfDAO.buscarCedula(usuario.getCedula()));
 			request.setAttribute("usuario", usuario);
 			
 			getServletContext().getRequestDispatcher("/JSPs/Usuario.jsp").forward(request, response);

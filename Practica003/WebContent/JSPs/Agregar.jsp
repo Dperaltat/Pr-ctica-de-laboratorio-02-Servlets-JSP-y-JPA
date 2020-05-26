@@ -18,50 +18,40 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="nav nav-tabs">
 				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/JSPs/CrearUsuario.jsp">Registrarse</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/JSPs/login.jsp">Iniciar Sesión</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/ControladorSesiones?id=3">Lista de contactos</a>
-				</li>
-				<li class="nav-item">
 					<a class="nav-link" href="/Practica003/JSPs/Busquedas.jsp">Buscar</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Practica003/JSPs/login.jsp">Cerrar Sesión</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
 
-	<c:set var="p1" value="${ requestScope['usuario'] }" />
-	<c:set var="p2" value="${ requestScope['idc'] }" />
+	<c:set var="p1" value="${requestScope['usuario'] }" />
+	<c:set var="p2" value="${requestScope['idc'] }" />
 
-<div>
-	<h1>Agregar número</h1>
+<h1>Agregar Teléfono</h1>
 
-</div>
-<div>
-	<a href="/Practica003/JSPs/index.jsp">Home</a> <a
-		href="/Practica003/controladorSesiones?id=2&ced=${p1.cedula}">Mi
-		Cuenta</a> <a href=""></a> <a href="" style="float: right">Sing out</a>
-</div>
-<div>
-	<form action="/Practica003/AgregarNumero?ced=${p2 }"
-		method="POST">
-
-		<h1>Agregar teléfono:</h1>
-
-		<label for="numero" class="mb-2 mr-sm-2">Número: </label> <input
-			type="number" name="numero" placeholder="numero" maxlength="10">
-
-		<label for="operadora">Operadora: </label> <input type="text"
-			name="operadora" placeholder="operadora"> <label for="tipo">Tipo:</label>
-		<input type="text" name="tipo" placeholder="tipo">
-
-		<button type="submit" name="agregar" value="ingresar"
-			class="btn btn-primary mb-2">Ingresar</button>
+<center>
+<div class="form-group">
+	<form action="/Practica003/AgregarNumero?ced=${p2 }" method="POST">
+		<div "form-group row">
+			<label for="numero" class="col-sm-2 col-form-label">Número</label> 
+			<input type="number" name="numero" placeholder="Número" maxlength="10">
+		</div>	
+		<div "form-group row">
+			<label for="operadora" class="col-sm-2 col-form-label">Operadora</label> 
+			<input type="text" name="operadora" placeholder="Operadora"> 
+		</div>
+		<div "form-group row">
+			<label for="tipo" class="col-sm-2 col-form-label">Tipo</label>
+			<input type="text" name="tipo" placeholder="Tipo">
+		</div>
+		<br>		
+		<button type="submit" name="agregar" value="ingresar" class="btn btn-primary mb-2">Agregar</button>
 	</form>
 </div>
+</center>
 </body>
 <footer>
  		<p>Posted by: Daniel Peralta</p>

@@ -9,7 +9,7 @@ public interface GenericDAO<T, ID> {
 
 	public void create(T entity);
 
-	public T read(ID id);
+	public T read(ID cedula);
 
 	public void update(T entity);
 
@@ -17,7 +17,7 @@ public interface GenericDAO<T, ID> {
 
 	public List<T> find();
 
-	public void deleteByID(ID id);
+	public void deleteByID(ID cedula);
 
 	Usuario buscar(String email, String pwd);
 

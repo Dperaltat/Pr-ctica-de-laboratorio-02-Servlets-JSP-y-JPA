@@ -33,34 +33,29 @@
 			</ul>
 		</div>
 	</nav>
-	
+
+<h1>Lista de Teléfonos</h1>	
+
 <form action="/Practica003/src/Controlador/ControladorSesiones?id=3" method="GET">
-<c:set var="t1" value="${requestScope['telefonos']}"/>
+<c:set var="t1" value="${requestScope['telefonos'] }"/>
 
-	
-	<div>
-  		<h1>Lista de telefonos</h1>
-	</div>
-	<div>
-		<a href="/Practica003/JSPs/index.jsp">Home</a>
-	</div>
 
-	<table>
+	<table class="table">
 	<thead>
 		<tr>
-			<th><h1>Cedula</h1></th>
-			<th><h1>Numero</h1></th>
-			<th><h1>Tipo</h1></th>
-			<th><h1>Operadora</h1></th>
+			<th scope="col">Cedula</th>
+			<th scope="col">Numero</th>
+			<th scope="col">Tipo</th>
+			<th scope="col">Operadora</th>
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach var="telf" items="${t1}">
+		<c:forEach var="telf" items="${t1 }">
 			<tr>
-				<td>${telf.codigo}</td>
-				<td>${telf.numero}<a href="tel: ${telf.numero }"></a></td>
-				<td>${telf.tipo}</td>
-				<td>${telf.operadora}</td>
+				<td>${telf.codigo }</td>
+				<td>${telf.numero }<a href="tel: ${telf.numero }"></a></td>
+				<td>${telf.tipo }</td>
+				<td>${telf.operadora }</td>
 			</tr>
 		</c:forEach>
 	</tbody>

@@ -12,7 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-<title>Bienvenido</title>
+<title>Usuario</title>
 
 </head>
 <body>
@@ -20,61 +20,54 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="nav nav-tabs">
 				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/ControladorSesiones?id=3">Lista de contactos</a>
+					<a class="nav-link" href="/Practica003/JSPs/Busquedas.jsp">Buscar</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/JSPs/Busquedas.jsp">Buscar</a>
+					<a class="nav-link" href="/Practica003/ControladorSesiones?id=1&c=${p2.cedula }">Agregar Número</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Practica003/JSPs/login.jsp">Cerrar Sesión</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
-<c:set var="t1" value="${requestScope['telefono']}"/>
+<c:set var="t1" value="${requestScope['telefono'] }"/>
 <c:set var="p2" value="${requestScope['usuario'] }"/>
-
-<%/* <h1>Login con exito</h1> */%>
-	
-	<div>
-		<div class="w3-display-topmiddle w3-container">
-  		<h1>Bienvenido</h1>
-  		<h1> ${ p2.nombre } ${p2.apellido }</h1>
-  			<ul>
-  				<li><a href="/Practica003/ControladorSesiones?id=2&idU=${p2.cedula }"></a>
-  			</ul>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
+	<center>
+	<h1>BIENVENIDO</h1>
+	<div class="card" style="width: 20rem;">
+	<br>
+		<img alt="" src="/Practica003/css/Imagenes/user.png" class="img-circle" height=70 weight=70>
+		<div class="card-body">
+			<h5 class="card-title">	${p2.nombre } ${p2.apellido }</h5>
+			<h6 class="card-subtitle mb-2 text-muted">${p2.correo }</h6>
+			<h6 class="card-subtitle mb-2 text-muted">${p2.cedula }</h6>
+		</div>		
 	</div>
-	<div>
-		<a href="/Practica003/JSPs/index.jsp">Home</a>
-		<a href="/Practica003/JSPs/Busquedas.jsp">Busqueda</a>
-		<a href="/Practica003/ControladorSesiones?id=1&c=${p2.cedula }">Agregar Numero</a>
-		<a href="/Practica003/LogOut" style="float:right">Sing out</a>
-	</div>
+	</center>
+	<br>
 	
-	
-	<table>
+	<table class="table">
 	<thead>
 		<tr>
-			<th><h1>Codigo</h1></th>
-			<th><h1>Numero</h1></th>
-			<th><h1>Tipo</h1></th>
-			<th><h1>Operadora</h1></th>
+			<th scope="col">Codigo</th>
+			<th scope="col">Numero</th>
+			<th scope="col">Tipo</th>
+			<th scope="col">Operadora</th>
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach var="telf" items="${t1}">
+		<c:forEach var="telf" items="${t1 }">
 			<tr>	
-				<td>${telf.telf_id}</td>
-				<td>${telf.numero}<a href="tel: ${telf.numero }"></a></td>
-				<td>${telf.tipo}</td>
-				<td>${telf.operadora}</td>
-				<td><a href="/Practica003/EliminarNumero?id=${telf.telf_id}&idUser=${p2.cedula}">Eliminar</a></td>
+				<td>${telf.telf_id }</td>
+				<td>${telf.numero }<a href="tel: ${telf.numero }"></a></td>
+				<td>${telf.tipo }</td>
+				<td>${telf.operadora }</td>
 			</tr>
 		</c:forEach>
 	</tbody>
 	</table>
+	<td><a href="/Practica003/EliminarNumero?id=${telf.telf_id }&idUser=${p2.cedula }">Eliminar Teléfono</a></td>
 </body>
 <footer>
  		<p>Posted by: Daniel Peralta</p>

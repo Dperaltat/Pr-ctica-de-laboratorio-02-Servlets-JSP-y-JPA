@@ -20,66 +20,54 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="nav nav-tabs">
 				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/JSPs/CrearUsuario.jsp">Registrarse</a>
+					<a class="nav-link" href="/Practica003/ControladorSesiones?id=1&c=${p2.cedula }">Agregar Número</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/JSPs/login.jsp">Iniciar Sesión</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/ControladorSesiones?id=3">Lista de contactos</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/JSPs/Busquedas.jsp">Buscar</a>
+					<a class="nav-link" href="/Practica003/JSPs/login.jsp">Cerrar Sesión</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
-	<c:set var="p1" value="${requestScope['telefono']}" />
+	
+	<c:set var="p1" value="${requestScope['telefono'] }" />
 
 	<div>
-		<h1>Busquedas</h1>
 		<h1>
-			<a href="/Practica003/ControladorSesiones?id=3" id="contact-link">Contactos</a>
+			<a href="/Practica003/ControladorSesiones?id=2" id="contact-link">Ver Contactos</a>
 		</h1>
 	</div>
+	
 	<div>
-		<a href="/Practica003/JSPs/index.jsp">Home</a>
 		<form action="/Practica003/Buscar?id=1" method="POST">
-		<a><input type="text" class="form-control" name="correo"
-				placeholder="Buscar por correo....."></a>
-		<a><button class="input-group-text" name="buscarCorreo" value="correoB"
-					type="submit">Buscar</button></a>
+			<input type="text" class="form-control" name="correo" placeholder="Buscar por correo.....">
+			<button class="btn btn-primary" name="buscarCorreo" value="correoB" type="submit">Buscar</button>
 		</form>
 
 		<form action="/Practica003/Buscar?id=2" method="POST">	
-		<a><input type="text" class="form-control" name="cedula"
-				placeholder="Buscar por cedula....."></a>		
-		<a><button class="input-group-text" name="buscarCed" value="cedulaB" type="submit">Buscar</button></a>
+			<input type="text" class="form-control" name="cedula" placeholder="Buscar por cédula.....">	
+			<button class="btn btn-primary" name="buscarCed" value="cedulaB" type="submit">Buscar</button>
 		
-	</form>
+		</form>
 	</div>
 	
-
-
-	<table>
+	<table class="table">
 		<thead>
 			<tr>
-				<th>Email</th>
-				<th>Tipo</th>
-				<th>Operadora</th>
-				<th>Numero</th>
+				<th scope="col">Email</th>
+				<th scope="col">Tipo</th>
+				<th scope="col">Operadora</th>
+				<th scope="col">Número</th>
 			</tr>
 		</thead>
 		<tbody>
 
-			<c:forEach var="telf" items="${p1}">
+			<c:forEach var="telf" items="${p1 }">
 				<tr>
 
-					<td>${telf.correo}<a href="mailto:${telf.correo }"></a></td>
-					<td>${telf.tipo}</td>
-					<td>${telf.operadora}</td>
-					<td>${telf.numero}<a href="tel: ${telf.numero }"></a>
-					</td>
+					<td>${telf.correo }<a href="mailto:${telf.correo }"></a></td>
+					<td>${telf.tipo }</td>
+					<td>${telf.operadora }</td>
+					<td>${telf.numero }<a href="tel: ${telf.numero }"></a></td>
 				</tr>
 
 			</c:forEach>

@@ -44,8 +44,8 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 	}
 
 	@Override
-	public T read(ID id) {
-		return em.find(persistentClass, id);
+	public T read(ID cedula) {
+		return em.find(persistentClass, cedula);
 	}
 
 	@Override
@@ -78,8 +78,8 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 	}
 	
 	@Override
-	public void deleteByID(ID id) {
-		T entity = this.read(id);
+	public void deleteByID(ID cedula) {
+		T entity = this.read (cedula);
 		if(entity != null) {
 			this.delete(entity);
 		}
@@ -141,7 +141,7 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Telefono> buscarCorreo(String correo) {
-		Query nativeQuery = em.createNativeQuery("SELECT * FROM usuario, telefono WHERE telefono.USUARIO_ID=usuario.ID and usuario.correo= ?", Telefono.class);
+		Query nativeQuery = em.createNativeQuery("SELECT * FROM usuario, telefono WHERE telefono.USUARIO_ID=usuario.CEDULA and usuario.correo= ?", Telefono.class);
 		 nativeQuery.setParameter(1, correo);
 		 
 		return (List<Telefono>) nativeQuery.getResultList();

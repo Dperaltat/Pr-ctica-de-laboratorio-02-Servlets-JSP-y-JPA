@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
 				if(user != null) {
 					TelefonoDAO telfDAO = DAOFactory.getFactory().getTelefonoDAO();
 					
-					request.setAttribute("telefono", telfDAO.buscarCedula(user.getId()));
+					request.setAttribute("telefono", telfDAO.buscarCedula(user.getCedula()));
 					request.setAttribute("usuario", user);
 					getServletContext().getRequestDispatcher(url).forward(request, response);
 				}else {
