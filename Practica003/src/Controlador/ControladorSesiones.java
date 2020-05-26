@@ -14,7 +14,7 @@ import DAO.UsuarioDAO;
 import Modelo.Usuario;
 
 
-@WebServlet( name = "controladorSesiones", urlPatterns= {"/controladorSesiones"})
+@WebServlet( name = "ControladorSesiones", urlPatterns= {"/ControladorSesiones"})
 public class ControladorSesiones extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,8 +44,7 @@ public class ControladorSesiones extends HttpServlet {
 			
 			getServletContext().getRequestDispatcher("/JSPs/Agregar.jsp").forward(request, response);
 		}else if(Integer.parseInt(request.getParameter("id"))==2) {
-			
-			//se obtiene la id del usuario cuando se ingresa
+
 			usuario = usuarioDao.read(request.getParameter("idU"));
 			
 			
@@ -54,7 +53,7 @@ public class ControladorSesiones extends HttpServlet {
 			
 			getServletContext().getRequestDispatcher("/JSPs/Usuario.jsp").forward(request, response);
 		}
-		//No tocar
+
 		if(Integer.parseInt(request.getParameter("id"))==3) {
 			System.out.println("Ingresando...");
 			

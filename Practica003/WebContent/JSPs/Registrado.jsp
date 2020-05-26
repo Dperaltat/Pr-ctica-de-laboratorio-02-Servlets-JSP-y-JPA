@@ -14,19 +14,19 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="nav nav-tabs">	
+			<ul class="nav nav-tabs">
 				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/JSPs/index.jsp">Home</a>
-				</li>	
-				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/JSPs/Invitado.jsp">Buscar en Modo Invitado</a>
-				</li>	
-				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/JSPs/CrearUsuario.jsp">Regístrate</a>
+					<a class="nav-link" href="/Practica003/JSPs/CrearUsuario.jsp">Registrarse</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/Practica003/JSPs/login.jsp">Inicia Sesión</a>
-				</li>						
+					<a class="nav-link" href="/Practica003/JSPs/login.jsp">Iniciar Sesión</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Practica003/ControladorSesiones?id=3">Lista de contactos</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/Practica003/JSPs/Busquedas.jsp">Buscar</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
