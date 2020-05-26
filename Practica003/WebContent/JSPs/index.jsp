@@ -16,7 +16,7 @@
 	<div>
 				<h1><a href="/Practica003/JSPs/CrearUsuario.jsp">Registrarse</a></h1>
 				<h1><a href="/Practica003/JSPs/login.jsp">Log In</a></h1>
-				<h1><a href="/Practica003/controladorSesiones?id=3">Lista de contactos</a></h1>
+				<h1><a href="/Practica003/Controlador/controladorSesiones?id=3">Lista de contactos</a></h1>
 				<h1><a href="/Practica003/JSPs/Busquedas.jsp">Buscar</a></h1>
 		</div>
 </body>

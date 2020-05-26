@@ -16,13 +16,15 @@ import Modelo.Telefono;
 import Modelo.Usuario;
 
 public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
-
+	
 	private Class<T> persistentClass;
 	protected EntityManager em;
-
+	
+	
+	
 	public JPAGenericDAO(Class<T> persistentClass) {
 		this.persistentClass = persistentClass;
-		this.em = Persistence.createEntityManagerFactory("jpa2").createEntityManager();
+		this.em = Persistence.createEntityManagerFactory("JPA").createEntityManager();
 	}
 
 	@Override
@@ -31,14 +33,14 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 		try {
 			em.persist(entity);
 			em.getTransaction().commit();
-
-		} catch (Exception e) {
+			
+		}catch(Exception e) {
 			System.out.println(">>> ERROR: JPAGENERICDAO: create " + e);
-			if (em.getTransaction().isActive()) {
+			if(em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
 			}
 		}
-
+		
 	}
 
 	@Override
@@ -48,44 +50,42 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 
 	@Override
 	public void update(T entity) {
-
+		
 		em.getTransaction().begin();
 		try {
 			em.merge(entity);
-		} catch (Exception e) {
-			System.out.println(">>> ERROR:JPAGENERICDAO:update " + e);
-			if (em.getTransaction().isActive()) {
+		}catch(Exception e) {
+			System.out.println(">>> ERROR:JPAGENERICDAO:update "+e);
+			if(em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
 			}
 		}
-
+		
 	}
-
-	// No olvidar poner entity en managed
 	@Override
 	public void delete(T entity) {
 		em.getTransaction().begin();
 		try {
 			em.remove(entity);
 			em.getTransaction().commit();
-		} catch (Exception e) {
-			System.out.println(">>> ERROR:JPAGENERICDAO:delete " + e);
-			if (em.getTransaction().isActive()) {
+		}catch(Exception e) {
+			System.out.println(">>> ERROR:JPAGENERICDAO:delete "+e);
+			if(em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
 			}
 		}
-
+		
 	}
-
+	
 	@Override
 	public void deleteByID(ID id) {
 		T entity = this.read(id);
-		if (entity != null) {
+		if(entity != null) {
 			this.delete(entity);
 		}
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({"rawtypes","unchecked"})
 	@Override
 	public List<T> find() {
 		em.getTransaction().begin();
@@ -95,12 +95,12 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 			cq.select(cq.from(persistentClass));
 			lista = em.createQuery(cq).getResultList();
 			em.getTransaction().commit();
-		} catch (Exception e) {
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		return lista;
 	}
-
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<T> findAll() {
@@ -111,7 +111,7 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 			cq.select(cq.from(persistentClass));
 			lista = em.createQuery(cq).getResultList();
 			em.getTransaction().commit();
-		} catch (Exception e) {
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		return lista;
@@ -119,34 +119,31 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 
 	@Override
 	public Usuario buscar(String email, String pwd) {
-
+		
 		Query nativeQuery = em.createNativeQuery("SELECT * FROM Usuario where correo =? AND pwd=?", Usuario.class);
 		nativeQuery.setParameter(1, email);
 		nativeQuery.setParameter(2, pwd);
-
+		
 		return (Usuario) nativeQuery.getSingleResult();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Telefono> buscarCedula(String cedula) {
-
+		
 		System.out.println("Consulta Realizada...");
-		Query nativeQuery = em.createNativeQuery("SELECT *  FROM telefono WHERE telefono.USUARIO_ID =?",
-				Telefono.class);
-		nativeQuery.setParameter(1, cedula);
+		Query nativeQuery = em.createNativeQuery("SELECT *  FROM telefono WHERE telefono.USUARIO_ID =?", Telefono.class);
+		 nativeQuery.setParameter(1, cedula);
 		System.out.println("Consulta Realizada...");
-		return (List<Telefono>) nativeQuery.getResultList();
+		return (List<Telefono>)nativeQuery.getResultList();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Telefono> buscarCorreo(String correo) {
-		Query nativeQuery = em.createNativeQuery(
-				"SELECT * FROM usuario, telefono WHERE telefono.USUARIO_ID=usuario.ID and usuario.correo= ?",
-				Telefono.class);
-		nativeQuery.setParameter(1, correo);
-
+		Query nativeQuery = em.createNativeQuery("SELECT * FROM usuario, telefono WHERE telefono.USUARIO_ID=usuario.ID and usuario.correo= ?", Telefono.class);
+		 nativeQuery.setParameter(1, correo);
+		 
 		return (List<Telefono>) nativeQuery.getResultList();
 	}
 
@@ -154,7 +151,7 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 	@Override
 	public List<Telefono> buscarCedInv(String cedula) {
 		Query nativeQuery = em.createNativeQuery("SELECT * FROM telefono WHERE telefono.USUARIO_ID=?", Telefono.class);
-		nativeQuery.setParameter(1, cedula);
+		 nativeQuery.setParameter(1, cedula);
 		return (List<Telefono>) nativeQuery.getResultList();
 	}
 }
